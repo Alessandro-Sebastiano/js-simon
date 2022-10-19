@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#number-box {
+
+    padding: 20px;
+}
+
+span {
+    padding: 10px 20px;
+}
+
+
+#input-box {
+    padding: 20px;
+}
+
+
+
+.hidden {
+    display: none;
+}
+
+
+.show {
+    display: block;
+}
