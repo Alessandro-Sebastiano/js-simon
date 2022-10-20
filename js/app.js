@@ -11,6 +11,8 @@ const inputs = document.getElementById('input-box');
 
 const correctNumbers = document.getElementById('correct-numbers');
 
+const winner = document.getElementById('win');
+
 
 const totalNumber = 5;
 
@@ -74,8 +76,6 @@ function getUserNumbers() {
     }
 
     result()
-
-    console.log(userArray, arrayNumber);
 }
 
 
@@ -97,7 +97,6 @@ function result() {
                 const checkNumber = document.createElement('span');
                 checkNumber.innerHTML = userArray[i];
                 correctNumbers.append(checkNumber);
-                console.log(userArray[i]);
             } else if (counter == 0) {
                 correctNumbers.innerHTML = `<h1>Nessun numero indovinato</h1>`;
             }
@@ -106,8 +105,22 @@ function result() {
 
         count.append(counter);
 
+        win(counter);
+
     }
 }
+
+
+function win(counter) {
+
+    if (counter == totalNumber) {
+        winner.innerHTML = 'Hai vinto';
+        winner.classList.add('show');
+    }
+
+}
+
+console.log(arrayNumber);
 
 
 numberButton.addEventListener('click', getUserNumbers);
