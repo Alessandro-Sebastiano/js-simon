@@ -31,6 +31,7 @@ const hidden = setTimeout(() => {
 const show = setTimeout(() => {
 
     inputs.classList.add('show')
+    clearTimeout(show);
 
 }, timer);
 
@@ -98,7 +99,7 @@ function result() {
                 correctNumbers.append(checkNumber);
                 console.log(userArray[i]);
             } else if (counter == 0) {
-                correctNumbers.innerHTML = `<h1>Nessun numero indovinato</h1>`
+                correctNumbers.innerHTML = `<h1>Nessun numero indovinato</h1>`;
             }
 
         }
