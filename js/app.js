@@ -16,6 +16,8 @@ const totalNumber = 5;
 
 let counter = 0;
 
+let timer = 3000;
+
 const arrayNumber = [];
 const userArray = [];
 
@@ -23,14 +25,14 @@ const userArray = [];
 const hidden = setTimeout(() => {
     numBox.classList.add('hidden');
     clearTimeout(hidden);
-}, 3000);
+}, timer);
 
 
 const show = setTimeout(() => {
 
     inputs.classList.add('show')
 
-}, 3000);
+}, timer);
 
 
 
@@ -78,8 +80,11 @@ function getUserNumbers() {
 
 
 function result() {
+    const count = document.getElementById('count');
 
     if (userArray.length == totalNumber) {
+
+        correctNumbers.classList.add('show');
 
         console.log('Hai inserito tutti i numeri');
         numberButton.removeEventListener('click', getUserNumbers);
@@ -87,15 +92,18 @@ function result() {
         for (let i = 0; i < userArray.length; i++) {
 
             if (arrayNumber.includes(userArray[i])) {
+                counter++;
                 const checkNumber = document.createElement('span');
                 checkNumber.innerHTML = userArray[i];
                 correctNumbers.append(checkNumber);
                 console.log(userArray[i]);
+            } else if (counter == 0) {
+                correctNumbers.innerHTML = `<h1>Nessun numero indovinato</h1>`
             }
 
         }
 
-        correctNumbers.classList.add('show');
+        count.append(counter);
 
     }
 }
